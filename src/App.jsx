@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Library from './components/Library/Library';
-import Book from './components/Book/Book';
 import * as Config from './config.json';
 import logo from './logo.svg';
 import './App.css';
@@ -19,19 +18,14 @@ class App extends Component {
     render() {
         const allLibraries = [];
         const allBooks = [];
-        Config.lib.forEach(function(element) {
-            allLibraries.push(<Library name={element.name} 
-                                       zip= {element.zip}
-                                       id = {element.id}
-                                       fullName = {element.fullName} 
-                                       bookCount = {element.bookCount} />)            
-        });
-        Config.book.forEach(function(element) {
-            allBooks.push(<Book name      = {element.name}
-                                id        = {element.id}
-                                author    = {element.author}
-                                libraryId = {element.libraryId}
-                                pageCount = {element.pageCount} />)
+        Config.lib.forEach(function(library) {
+            allLibraries.push(<Library 
+                name={library.name} 
+                zip= {library.zip}
+                id = {library.id}
+                fullName = {library.fullName} 
+                bookCount = {library.book.length}
+                books={library.book} />);
         });
         return (
             <div className="App">
@@ -42,7 +36,6 @@ class App extends Component {
                 <p className="App-intro">
                     Hello World
                     {allLibraries}
-                    {allBooks}
                 </p>
             </div>
         );
