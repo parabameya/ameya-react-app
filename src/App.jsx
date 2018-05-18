@@ -4,10 +4,19 @@ import Books from './components/Books/Books';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      libraryName: "UTD",
+      booksCount: 123,
+    };
+  }
   componentDidMount() {
     console.log('I am mounted')
   }
   render() {
+    const { libraryName, booksCount } = this.state;
+    console.log('libraryName', libraryName);
     return (
       <div className="App">
         <header className="App-header">
@@ -16,7 +25,11 @@ class App extends Component {
         </header>
         <p className="App-intro">
           Hello World
-          <Books name={'Harry Potter'}/>
+          <Books
+            bookName={'Harry Potter 5'}
+            libraryName={libraryName}
+            booksCount={booksCount}
+          />
         </p>
       </div>
     );

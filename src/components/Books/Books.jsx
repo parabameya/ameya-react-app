@@ -5,10 +5,13 @@ class Books extends Component {
     console.log('I am mounted')
   }
   render() {
+    const { bookName, libraryName, booksCount } = this.props;
     return (
       <div className="Books">
         <p className="Books-intro">
-          Hello I am Book {this.props.name}
+          Hello I am Lib {libraryName} <br />
+          Book: {bookName} <br />
+          My total Count is {booksCount}<br />
         </p>
       </div>
     );
