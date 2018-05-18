@@ -10,9 +10,14 @@ class App extends Component {
       libraryName: "UTD",
       booksCount: 123,
     };
+    this.buttonClick = this.buttonClick.bind(this);
   }
   componentDidMount() {
-    console.log('I am mounted')
+    console.log('I am mounted');
+  }
+  buttonClick() {
+    console.log('i am clicked');
+    this.setState({ libraryName: "SMU" });
   }
   render() {
     const { libraryName, booksCount } = this.state;
@@ -23,6 +28,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <button onClick={this.buttonClick}> SMU </button>
         <p className="App-intro">
           Hello World
           <Books
