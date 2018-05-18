@@ -1,0 +1,34 @@
+{
+    "lib": [
+        {
+            "id" : "345",
+            "name" : "UTD",
+            "fullName" : "University of Texas at Dallas",
+            "zip" : 75080,
+            "bookCount" : 450
+        },
+        {
+            "id" : "678",
+            "name" : "SMU",
+            "fullName" : "Southern Methodist University",
+            "zip" : 75275,
+            "bookCount" : 990
+        },
+        {
+            "id" : "901",
+            "name" : "UTA",
+            "fullName" : "University of Texas at Arlington",
+            "zip" : 76091,
+            "bookCount" : 340
+        }
+    ],
+    "book": [
+        {
+            "id": "0379427",
+            "name" : "Alice's Adventures in Wonderland",
+            "author" : "Lewis Carroll",
+            "libraryId" : 345,
+            "pageCount" : 402
+        }
+    ]
+}
