@@ -20,7 +20,7 @@ class App extends Component {
         this.getBookDetails();
     }
     getBookDetails() {
-        /* */
+        /* https://github.com/parabameya/ameya-node-app */
         axios.get(`http://localhost:3001/library`)
         .then(res => {
             this.setState({ libraries: res.data });
