@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Library from './components/Library/Library';
-import * as Config from './config.json';
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,23 +10,37 @@ class App extends Component {
         this.state = {
         libraryName: "UTD",
         booksCount: 123,
+        libraries: {},
         };
+        this.getBookDetails = this.getBookDetails.bind(this);
+
     }
     componentDidMount() {
-        console.log('I am mounted')
+        console.log('I am mounted');
+        this.getBookDetails();
+    }
+    getBookDetails() {
+        /* */
+        axios.get(`http://localhost:3001/library`)
+        .then(res => {
+            this.setState({ libraries: res.data });
+        });
     }
     render() {
+        const { libraries } = this.state;
         const allLibraries = [];
         const allBooks = [];
-        Config.lib.forEach(function(library) {
-            allLibraries.push(<Library 
-                name={library.name} 
-                zip= {library.zip}
-                id = {library.id}
-                fullName = {library.fullName} 
-                bookCount = {library.book.length}
-                books={library.book} />);
-        });
+        if (libraries.lib) {
+            libraries.lib.forEach(function(library) {
+                allLibraries.push(<Library 
+                    name={library.name} 
+                    zip= {library.zip}
+                    id = {library.id}
+                    fullName = {library.fullName} 
+                    bookCount = {library.book.length}
+                    books={library.book} />);
+            });
+        }
         return (
             <div className="App">
                 <header className="App-header">
